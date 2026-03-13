@@ -358,6 +358,55 @@ p + p {
   animation: pulse 2s ease-in-out infinite;
 }
 
+/* Storm Tracker Banner */
+.storm-banner {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px var(--space-md);
+  background: linear-gradient(135deg, rgba(232,160,32,0.18) 0%, rgba(232,160,32,0.08) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(232,160,32,0.3);
+  text-decoration: none;
+  color: var(--accent);
+  transition: background 0.2s ease;
+}
+
+.storm-banner:hover {
+  background: linear-gradient(135deg, rgba(232,160,32,0.3) 0%, rgba(232,160,32,0.15) 100%);
+  color: var(--accent-hover);
+}
+
+.storm-banner__text {
+  font-weight: 800;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.storm-banner__sub {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .storm-banner__sub {
+    display: none;
+  }
+  .storm-banner {
+    padding: 6px var(--space-sm);
+    gap: 8px;
+  }
+}
+
 .nav__actions {
   display: flex;
   align-items: center;
@@ -556,7 +605,7 @@ p + p {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: var(--nav-height);
+  padding-top: calc(var(--nav-height) + 36px);
   overflow: hidden;
 }
 
@@ -1090,7 +1139,7 @@ p + p {
 /* --- Page Hero (inner pages) --- */
 .page-hero {
   position: relative;
-  padding: calc(var(--nav-height) + var(--space-xl)) 0 var(--space-xl);
+  padding: calc(var(--nav-height) + 36px + var(--space-xl)) 0 var(--space-xl);
   background-color: var(--bg-secondary);
   overflow: hidden;
   min-height: 320px;
