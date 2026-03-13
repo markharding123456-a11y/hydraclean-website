@@ -40,6 +40,7 @@
     ]
   }
   </script>
+  <link rel="stylesheet" href="../css/chatbot.css">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -175,5 +176,6 @@
   <style>@keyframes helpPulse { 0%, 100% { box-shadow: 0 4px 16px rgba(255,59,48,0.4); } 50% { box-shadow: 0 4px 24px rgba(255,59,48,0.6); } } #sendHelpBtn:hover, #sendHelpBtn:focus { border-radius: 50px; width: auto; padding: 0 18px; font-size: 0.75rem; } @media (max-width: 767px) { #sendHelpBtn { bottom: 70px; right: 12px; width: 44px; height: 44px; } #sendHelpBtn:hover, #sendHelpBtn:focus { width: auto; padding: 0 14px; } }</style>
   <script>(function() { var btn = document.getElementById('sendHelpBtn'), modal = document.getElementById('helpModal'), dismiss = document.getElementById('helpDismiss'); function playHorn() { try { var ctx = new (window.AudioContext || window.webkitAudioContext)(); var osc1 = ctx.createOscillator(); var osc2 = ctx.createOscillator(); var gain = ctx.createGain(); osc1.type = 'sawtooth'; osc1.frequency.setValueAtTime(220, ctx.currentTime); osc1.frequency.linearRampToValueAtTime(440, ctx.currentTime + 0.15); osc2.type = 'square'; osc2.frequency.setValueAtTime(330, ctx.currentTime); osc2.frequency.linearRampToValueAtTime(550, ctx.currentTime + 0.15); gain.gain.setValueAtTime(0.3, ctx.currentTime); gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.6); osc1.connect(gain); osc2.connect(gain); gain.connect(ctx.destination); osc1.start(ctx.currentTime); osc2.start(ctx.currentTime); osc1.stop(ctx.currentTime + 0.6); osc2.stop(ctx.currentTime + 0.6); } catch(e) {} } btn.addEventListener('click', function() { playHorn(); modal.style.display = 'flex'; }); dismiss.addEventListener('click', function() { modal.style.display = 'none'; }); modal.addEventListener('click', function(e) { if (e.target === modal) modal.style.display = 'none'; }); })();</script>
   <script src="../js/main.js"></script>
+  <script src="../js/chatbot.js"></script>
 </body>
 </html>
