@@ -58,6 +58,7 @@
   flex-direction: column;
   overflow: hidden;
   font-family: inherit;
+  touch-action: none;
 }
 
 .chatbot-panel.chatbot-open {
@@ -128,6 +129,9 @@
 .chatbot-messages {
   flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -185,6 +189,11 @@
   gap: 6px;
   padding: 0 16px 12px;
   flex-shrink: 0;
+  max-height: 180px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  overscroll-behavior: contain;
 }
 
 .chatbot-btn {
