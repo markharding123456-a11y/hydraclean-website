@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.hydraclean.ca)",
+      "WebSearch",
+      "WebFetch(domain:pauldavis.com)",
+      "WebFetch(domain:comradeweb.com)",
+      "WebFetch(domain:www.proceedinnovative.com)",
+      "WebFetch(domain:www.petersonseoconsulting.com)",
+      "WebFetch(domain:elevareagency.com)",
+      "WebFetch(domain:www.servgrow.com)",
+      "WebFetch(domain:mycodelesswebsite.com)",
+      "WebFetch(domain:www.puroclean.com)",
+      "WebFetch(domain:www.belfor.com)",
+      "WebFetch(domain:hookagency.com)",
+      "WebFetch(domain:hydraclean.ca)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where npx:*)",
+      "Bash(where python:*)",
+      "Bash(ls \"/c/Users/m.harding.HYDRACLEAN/Desktop/HydraClean Website/\"*.html)",
+      "WebFetch(domain:www.iicrc.org)",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(gh auth:*)"
+    ]
+  }
+}
