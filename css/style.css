@@ -270,7 +270,7 @@ p + p {
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  max-width: var(--max-width);
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 var(--space-md);
 }
@@ -306,7 +306,7 @@ p + p {
 .nav__links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.25rem;
 }
 
 .nav__link {
@@ -346,7 +346,8 @@ p + p {
   font-weight: 700;
   color: var(--accent);
   text-decoration: none;
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
+  white-space: nowrap;
 }
 
 .nav__phone:hover {
@@ -1649,6 +1650,13 @@ p + p {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* --- Responsive: Nav tightening --- */
+@media (max-width: 1200px) {
+  .nav__actions .btn {
+    display: none;
   }
 }
 
