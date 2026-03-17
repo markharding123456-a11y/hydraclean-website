@@ -297,29 +297,20 @@ p + p {
 .nav__logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--text-primary);
   text-decoration: none;
-  letter-spacing: -0.02em;
 }
 
 .nav__logo:hover {
-  color: var(--text-primary);
+  opacity: 0.9;
 }
 
-.nav__logo-mark {
-  width: 36px;
-  height: 36px;
-  background: var(--accent);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 1rem;
-  color: var(--bg-primary);
+.nav__logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.nav__logo-img--footer {
+  height: 32px;
 }
 
 .nav__links {
