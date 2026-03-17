@@ -102,7 +102,21 @@
       "WebFetch(domain:www.okrestore.com)",
       "WebFetch(domain:local.servicemasterrestore.ca)",
       "Bash(python restructure.py)",
-      "Bash(ls -d */)"
+      "Bash(ls -d */)",
+      "Bash(taskkill //F //IM python.exe)",
+      "Bash(xargs grep:*)",
+      "Bash(ls /c/Python*)",
+      "Bash(ls /c/Users/m.harding.HYDRACLEAN/AppData/Local/Programs/Python/*/python.exe)",
+      "WebFetch(domain:www.servicemaster.com)",
+      "WebFetch(domain:www.pauldavis.com)",
+      "WebFetch(domain:www.rainbowintl.com)",
+      "WebFetch(domain:www.winmar.ca)",
+      "WebFetch(domain:web3forms.com)",
+      "Bash(curl -o hydraclean-logo.png \"https://www.hydraclean.ca/template/image/hydraclean-logo.png\")",
+      "Bash(curl -o hydraclean-footer-logo.png \"https://www.hydraclean.ca/template/image/hydraclean-footer-logo.png\")",
+      "Bash(python:*)",
+      "Bash(curl -o images/hydraclean-logo.png \"https://www.hydraclean.ca/template/image/hydraclean-logo.png\")",
+      "Bash(curl -o images/hydraclean-footer-logo.png \"https://www.hydraclean.ca/template/image/hydraclean-footer-logo.png\")"
     ]
   }
 }
