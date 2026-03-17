@@ -66,7 +66,7 @@
       ],
       buttons: [
         { label: "Book free assessment", topic: "assessment" },
-        { label: "Learn more", href: "services/water-damage.html", page: true },
+        { label: "Learn more", href: "water-damage/", page: true },
         { label: "\u2190 Back to services", topic: "services" }
       ]
     },
@@ -78,7 +78,7 @@
       ],
       buttons: [
         { label: "Book free assessment", topic: "assessment" },
-        { label: "Learn more", href: "services/fire-smoke.html", page: true },
+        { label: "Learn more", href: "fire-smoke-damage/", page: true },
         { label: "\u2190 Back to services", topic: "services" }
       ]
     },
@@ -90,7 +90,7 @@
       ],
       buttons: [
         { label: "Book free assessment", topic: "assessment" },
-        { label: "Learn more", href: "services/mould-remediation.html", page: true },
+        { label: "Learn more", href: "mold/", page: true },
         { label: "\u2190 Back to services", topic: "services" }
       ]
     },
@@ -102,7 +102,7 @@
       ],
       buttons: [
         { label: "Book free assessment", topic: "assessment" },
-        { label: "Learn more", href: "services/asbestos-abatement.html", page: true },
+        { label: "Learn more", href: "asbestos/", page: true },
         { label: "\u2190 Back to services", topic: "services" }
       ]
     },
@@ -114,7 +114,7 @@
       ],
       buttons: [
         { label: "Book free assessment", topic: "assessment" },
-        { label: "Learn more", href: "services/natural-disaster.html", page: true },
+        { label: "Learn more", href: "natural-disasters/", page: true },
         { label: "\u2190 Back to services", topic: "services" }
       ]
     },
@@ -125,7 +125,7 @@
         "Each of these requires a different approach. We\u2019re happy to discuss your specific situation."
       ],
       buttons: [
-        { label: "View all services", href: "services.html", page: true },
+        { label: "View all services", href: "restoration-services/", page: true },
         { label: "Book free assessment", topic: "assessment" },
         { label: "\u2190 Back to services", topic: "services" }
       ]
@@ -138,7 +138,7 @@
       ],
       buttons: [
         { label: "\ud83d\udcde 1-877-91-FLOOD", href: "tel:18779135663", call: true },
-        { label: "Contact page", href: "contact.html", page: true },
+        { label: "Contact page", href: "contact/", page: true },
         { label: "\u2190 Main menu", topic: "greeting" }
       ]
     },
@@ -164,7 +164,7 @@
       ],
       buttons: [
         { label: "\ud83d\udcde 1-877-91-FLOOD", href: "tel:18779135663", call: true },
-        { label: "Contact form", href: "contact.html", page: true },
+        { label: "Contact form", href: "contact/", page: true },
         { label: "\u2190 Main menu", topic: "greeting" }
       ]
     },
@@ -175,7 +175,7 @@
         "We hold IICRC Master Designation (the highest level of restoration certification), WorkSafeBC Asbestos Certification, and BBB Accreditation."
       ],
       buttons: [
-        { label: "About us page", href: "about.html", page: true },
+        { label: "About us page", href: "about-us/", page: true },
         { label: "Our certifications", topic: "certifications" },
         { label: "\u2190 Main menu", topic: "greeting" }
       ]
@@ -187,7 +187,7 @@
         "These aren\u2019t just plaques on the wall \u2014 they mean our team follows the latest science-based standards for every project."
       ],
       buttons: [
-        { label: "About us page", href: "about.html", page: true },
+        { label: "About us page", href: "about-us/", page: true },
         { label: "\u2190 Main menu", topic: "greeting" }
       ]
     },
@@ -211,7 +211,7 @@
       buttons: [
         { label: "\ud83d\udcde 1-877-91-FLOOD", href: "tel:18779135663", call: true },
         { label: "\u2709\ufe0f Email us", href: "mailto:info@hydraclean.ca" },
-        { label: "Contact page", href: "contact.html", page: true },
+        { label: "Contact page", href: "contact/", page: true },
         { label: "\u2190 Main menu", topic: "greeting" }
       ]
     }
@@ -278,9 +278,9 @@
   // ========================================
   function resolvePath(href) {
     if (!href || href.indexOf("tel:") === 0 || href.indexOf("mailto:") === 0 || href.indexOf("http") === 0) return href;
-    // Detect if we're in a subdirectory
-    var path = window.location.pathname;
-    if (path.indexOf("/services/") !== -1 || path.indexOf("/areas/") !== -1 || path.indexOf("/blog/") !== -1) {
+    // Detect if we're in a subdirectory by checking how this script was loaded
+    var chatbotScript = document.querySelector('script[src*="chatbot.js"]');
+    if (chatbotScript && chatbotScript.getAttribute('src').indexOf('../') === 0) {
       return "../" + href;
     }
     return href;
