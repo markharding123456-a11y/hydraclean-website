@@ -259,9 +259,9 @@
             Our Site uses the following third-party services:
           </p>
 
-          <h3 class="reveal" style="font-size: 1.0625rem; margin-bottom: var(--space-xs);">Formspree</h3>
+          <h3 class="reveal" style="font-size: 1.0625rem; margin-bottom: var(--space-xs);">Web3Forms</h3>
           <p class="reveal" style="font-size: 1.0625rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--space-md);">
-            Our contact and help request forms are processed through Formspree, a third-party form handling service. When you submit a form, your information (name, phone, email, service type, and message) is transmitted through Formspree's servers and forwarded to us via email. Formspree's privacy policy governs how they handle data in transit. You can review their policy at <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">formspree.io/legal/privacy-policy</a>.
+            Our contact and help request forms are processed through Web3Forms, a third-party form handling service. When you submit a form, your information (name, phone, email, service type, and message) is transmitted through Web3Forms' servers and forwarded to us via email. Web3Forms' privacy policy governs how they handle data in transit. You can review their policy at <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">web3forms.com/privacy</a>.
           </p>
 
           <h3 class="reveal" style="font-size: 1.0625rem; margin-bottom: var(--space-xs);">Google Fonts</h3>
@@ -435,7 +435,8 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
     </div>
-    <form action="https://formspree.io/f/xpwzgkvq" method="POST">
+    <form action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="b58a9594-8193-4dd7-84fe-30d347a05367">
       <div class="form-group">
         <label for="helpName" class="visually-hidden">Your Name</label><input type="text" id="helpName" name="name" placeholder="Your Name" required>
       </div>

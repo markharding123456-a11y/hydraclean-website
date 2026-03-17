@@ -228,7 +228,7 @@
 
   // --- Form Handling ---
   function initForms() {
-    const forms = document.querySelectorAll('form[action*="formspree"]');
+    const forms = document.querySelectorAll('form[action*="web3forms"]');
     forms.forEach(form => {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
