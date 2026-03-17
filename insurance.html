@@ -16,6 +16,11 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.hydraclean.ca/insurance">
   <meta property="og:image" content="https://www.hydraclean.ca/og-image.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Insurance Claims Help | HydraClean Disaster Restoration">
+  <meta name="twitter:description" content="We handle the insurance so you can focus on recovery. Direct billing, comprehensive documentation, and full claims support.">
+  <meta name="twitter:image" content="https://www.hydraclean.ca/og-image.png">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -83,6 +88,26 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/chatbot.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.hydraclean.ca/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insurance Claims Help",
+      "item": "https://www.hydraclean.ca/insurance"
+    }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Skip to Content -->
@@ -412,7 +437,7 @@
           </div>
           <div class="footer__contact-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Kelowna, BC<br>Serving all of British Columbia</span>
+            <span>Kelowna: 7-1050 Leathead Rd<br>Grand Forks: 136 Sagamore Rd<br><small>Serving all of British Columbia</small></span>
           </div>
         </div>
       </div>
@@ -447,10 +472,10 @@
     </div>
     <form action="https://formspree.io/f/xpwzgkvq" method="POST">
       <div class="form-group">
-        <input type="text" name="name" placeholder="Your Name" required>
+        <label for="helpName" class="visually-hidden">Your Name</label><input type="text" id="helpName" name="name" placeholder="Your Name" required>
       </div>
       <div class="form-group">
-        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <label for="helpPhone" class="visually-hidden">Phone Number</label><input type="tel" id="helpPhone" name="phone" placeholder="Phone Number" required>
       </div>
       <div class="form-group">
         <select name="service" required>
@@ -468,160 +493,37 @@
   </div>
 
   <!-- Send Help Fast Button & Modal -->
-  <button id="sendHelpBtn" aria-label="Send Help Fast" style="
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    z-index: 1100;
-    background: #FF3B30;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    padding: 0;
-    font-size: 0;
-    font-weight: 800;
-    font-family: inherit;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(255,59,48,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    animation: helpPulse 3s ease-in-out infinite;
-    overflow: hidden;
-  ">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+  <button id="sendHelpBtn" class="send-help-btn" aria-label="Send Help Fast">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
     <span style="white-space:nowrap;margin-left:6px;">HELP</span>
   </button>
 
-  <div id="helpModal" style="
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    justify-content: center;
-    align-items: center;
-  ">
-    <div style="
-      background: #0D1B2A;
-      border: 2px solid #FF3B30;
-      border-radius: 16px;
-      padding: 40px 36px;
-      max-width: 420px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 0 60px rgba(255,59,48,0.3);
-    ">
-      <div style="
-        width: 72px; height: 72px; margin: 0 auto 20px;
-        background: rgba(255,59,48,0.15);
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-      ">
+  <div id="helpModal" class="help-modal-overlay" role="dialog" aria-modal="true" aria-label="Emergency response">
+    <div class="help-modal">
+      <div class="help-modal__icon">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.88.36 1.74.7 2.56a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.82.34 1.68.57 2.56.7A2 2 0 0 1 22 16.92z"/></svg>
       </div>
-      <h2 style="color: #fff; font-size: 1.5rem; margin-bottom: 8px;">Emergency Response</h2>
-      <p style="color: #8FA4C4; font-size: 1rem; margin-bottom: 28px; line-height: 1.5;">
-        Want to speak with a live emergency response expert right now?
-      </p>
-      <a href="tel:18779135663" id="helpCallBtn" style="
-        display: block;
-        background: #FF3B30;
-        color: #fff;
-        font-size: 1.125rem;
-        font-weight: 800;
-        padding: 16px;
-        border-radius: 8px;
-        text-decoration: none;
-        margin-bottom: 12px;
-        transition: background 0.2s;
-      ">Yes, Connect Me Now</a>
-      <button id="helpDismiss" style="
-        display: block;
-        width: 100%;
-        background: transparent;
-        color: #4A6080;
-        font-size: 0.95rem;
-        font-weight: 600;
-        padding: 12px;
-        border: 1px solid #1E3A5C;
-        border-radius: 8px;
-        cursor: pointer;
-        font-family: inherit;
-        transition: color 0.2s;
-      ">Not yet</button>
+      <h2 class="help-modal__title">Emergency Response</h2>
+      <p class="help-modal__text">Want to speak with a live emergency response expert right now?</p>
+      <a href="tel:18779135663" id="helpCallBtn" class="help-modal__call">Yes, Connect Me Now</a>
+      <button id="helpDismiss" class="help-modal__dismiss">Not yet</button>
     </div>
   </div>
-
-  <style>
-    @keyframes helpPulse {
-      0%, 100% { box-shadow: 0 4px 16px rgba(255,59,48,0.4); }
-      50% { box-shadow: 0 4px 24px rgba(255,59,48,0.6); }
-    }
-    #sendHelpBtn:hover, #sendHelpBtn:focus {
-      border-radius: 50px;
-      width: auto;
-      padding: 0 18px;
-      font-size: 0.75rem;
-    }
-    @media (max-width: 767px) {
-      #sendHelpBtn { bottom: 70px; right: 12px; width: 44px; height: 44px; }
-      #sendHelpBtn:hover, #sendHelpBtn:focus {
-        width: auto;
-        padding: 0 14px;
-      }
-    }
-  </style>
 
   <script>
   (function() {
     var btn = document.getElementById('sendHelpBtn');
     var modal = document.getElementById('helpModal');
     var dismiss = document.getElementById('helpDismiss');
-
-    function playHorn() {
-      try {
-        var ctx = new (window.AudioContext || window.webkitAudioContext)();
-        var osc1 = ctx.createOscillator();
-        var osc2 = ctx.createOscillator();
-        var gain = ctx.createGain();
-        osc1.type = 'sawtooth';
-        osc1.frequency.setValueAtTime(220, ctx.currentTime);
-        osc1.frequency.linearRampToValueAtTime(440, ctx.currentTime + 0.15);
-        osc2.type = 'square';
-        osc2.frequency.setValueAtTime(330, ctx.currentTime);
-        osc2.frequency.linearRampToValueAtTime(550, ctx.currentTime + 0.15);
-        gain.gain.setValueAtTime(0.3, ctx.currentTime);
-        gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.6);
-        osc1.connect(gain);
-        osc2.connect(gain);
-        gain.connect(ctx.destination);
-        osc1.start(ctx.currentTime);
-        osc2.start(ctx.currentTime);
-        osc1.stop(ctx.currentTime + 0.6);
-        osc2.stop(ctx.currentTime + 0.6);
-      } catch(e) {}
+    if (btn && modal) {
+      btn.addEventListener('click', function() { modal.classList.add('active'); });
     }
-
-    btn.addEventListener('click', function() {
-      playHorn();
-      modal.style.display = 'flex';
-    });
-
-    dismiss.addEventListener('click', function() {
-      modal.style.display = 'none';
-    });
-
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) modal.style.display = 'none';
-    });
+    if (dismiss && modal) {
+      dismiss.addEventListener('click', function() { modal.classList.remove('active'); });
+    }
+    if (modal) {
+      modal.addEventListener('click', function(e) { if (e.target === modal) modal.classList.remove('active'); });
+    }
   })();
   </script>
 

@@ -39,7 +39,7 @@
   /* Layout */
   --max-width: 1200px;
   --nav-height: 64px;
-  --bottom-bar-height: 56px;
+  --bottom-bar-height: 48px;
 
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -95,6 +95,25 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+}
+
+/* --- Visually Hidden (SR only) --- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Focus Indicators --- */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* --- Typography --- */
@@ -470,9 +489,11 @@ p + p {
 .nav__hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
-  width: 24px;
-  padding: 0;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
   background: none;
   border: none;
   cursor: pointer;
@@ -597,6 +618,170 @@ p + p {
   color: var(--text-primary);
   border: none;
   cursor: pointer;
+}
+
+/* --- Trust Badges --- */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.trust-badge svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+  opacity: 0.85;
+}
+
+/* --- Send Help Fast Button --- */
+.send-help-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 1100;
+  background: var(--emergency);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  font-size: 0;
+  font-weight: 800;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255,59,48,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+}
+
+.send-help-btn:hover,
+.send-help-btn:focus {
+  border-radius: 50px;
+  width: auto;
+  padding: 0 18px;
+  font-size: 0.75rem;
+}
+
+.send-help-btn svg {
+  flex-shrink: 0;
+}
+
+/* --- Help Modal --- */
+.help-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+}
+
+.help-modal-overlay.active {
+  display: flex;
+}
+
+.help-modal {
+  background: #0D1B2A;
+  border: 2px solid var(--emergency);
+  border-radius: 16px;
+  padding: 40px 36px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(255,59,48,0.3);
+}
+
+.help-modal__icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  background: rgba(255,59,48,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.help-modal__title {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.help-modal__text {
+  color: #8FA4C4;
+  font-size: 1rem;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.help-modal__call {
+  display: block;
+  background: var(--emergency);
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 800;
+  padding: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: background 0.2s;
+}
+
+.help-modal__dismiss {
+  display: block;
+  width: 100%;
+  background: transparent;
+  color: #4A6080;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px;
+  border: 1px solid #1E3A5C;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+
+@media (max-width: 767px) {
+  .send-help-btn {
+    bottom: 70px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+  }
+  .send-help-btn:hover,
+  .send-help-btn:focus {
+    width: auto;
+    padding: 0 14px;
+  }
 }
 
 /* --- Hero --- */
@@ -1758,12 +1943,13 @@ p + p {
 /* --- Responsive: Mobile --- */
 @media (max-width: 767px) {
   :root {
-    --space-xl: 4rem;
+    --space-xl: 3.5rem;
     --space-lg: 2.5rem;
   }
 
   body {
     font-size: 16px;
+    line-height: 1.65;
     padding-bottom: var(--bottom-bar-height);
   }
 
@@ -1869,6 +2055,16 @@ p + p {
 
   .insurance-step {
     flex-direction: column;
+  }
+
+  /* Hide Send Help Fast FAB on mobile — bottom bar handles emergency */
+  #sendHelpBtn {
+    display: none !important;
+  }
+
+  /* Safe area for notched phones */
+  .bottom-bar {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }
 
@@ -2155,14 +2351,15 @@ p + p {
 .blog-card {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
-  transition: border-color var(--transition-base), transform var(--transition-base);
+  transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .blog-card:hover {
   border-color: var(--accent);
   transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
 .blog-card__image {

@@ -174,6 +174,9 @@
   function initAccordions() {
     const triggers = document.querySelectorAll('.accordion__trigger');
     triggers.forEach(trigger => {
+      // Set initial ARIA state
+      trigger.setAttribute('aria-expanded', 'false');
+
       trigger.addEventListener('click', () => {
         const item = trigger.closest('.accordion__item');
         const content = item.querySelector('.accordion__content');
@@ -186,6 +189,7 @@
             if (openItem !== item) {
               openItem.classList.remove('active');
               openItem.querySelector('.accordion__content').style.maxHeight = null;
+              openItem.querySelector('.accordion__trigger').setAttribute('aria-expanded', 'false');
             }
           });
         }
@@ -193,9 +197,11 @@
         if (isOpen) {
           item.classList.remove('active');
           content.style.maxHeight = null;
+          trigger.setAttribute('aria-expanded', 'false');
         } else {
           item.classList.add('active');
           content.style.maxHeight = content.scrollHeight + 'px';
+          trigger.setAttribute('aria-expanded', 'true');
         }
       });
     });
@@ -354,6 +360,22 @@
     }
   }
 
+  // --- Scroll-Aware Chatbot Trigger (Mobile) ---
+  function initChatbotScrollReveal() {
+    var trigger = document.querySelector('.chatbot-trigger');
+    if (!trigger || window.innerWidth >= 768) return;
+
+    trigger.style.visibility = 'hidden';
+
+    var revealed = false;
+    window.addEventListener('scroll', function() {
+      if (!revealed && window.scrollY > 200) {
+        trigger.style.visibility = 'visible';
+        revealed = true;
+      }
+    }, { passive: true });
+  }
+
   // --- Init All ---
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
@@ -367,6 +389,7 @@
     initHeroAnimation();
     initParallax();
     setActiveNav();
+    initChatbotScrollReveal();
   });
 
 })();
